@@ -10,11 +10,9 @@ public class Lotto {
 	System.out.println(AusgabeZiehung[q]);
 	}
 	
+	readPlayerTip();
+
 	
-	int[] EingabeZahlen=readPlayerTip();{
-		
-		
-	}
 	
 	
 		
@@ -50,32 +48,34 @@ public class Lotto {
 
 	public static int[] readPlayerTip(){
 		
-	int r=0;
-	int zaehler;
-	int y=0;
-	
-	int[] eingabeZahl= new int[6];
-	
-	for(zaehler=0;zaehler<6;zaehler++){
+		int[] SpielerZahl=new int [6];
+		int ZahlReihenfolge;
+		int abFrageReihenfolge;
+		int g=0;
 		
-		r++;
-	
-	System.out.println("Bitte geben sie die "+r+" . ein!");
-		y=In.readInt();
 		
-		if (y<=0 || y>49){
-		    System.out.println("Zahl nicht gültig");
-		    System.exit( 0 );}
+		for(ZahlReihenfolge=0;ZahlReihenfolge<6;ZahlReihenfolge++){
+			
+			g++;
+		    System.out.println("Bitte geben Sie die " +g+ ". Zahl ein");
+		    SpielerZahl[ZahlReihenfolge]= In.readInt();
+		    
+		
+		for(abFrageReihenfolge=0;abFrageReihenfolge<ZahlReihenfolge;abFrageReihenfolge++){
+			
+			if(SpielerZahl[ZahlReihenfolge] == SpielerZahl[abFrageReihenfolge]){
+				System.out.println("Keine doppelten Zahlen");
+				System.exit( 0 );
+			}
+		}
+		}
+		return SpielerZahl;
+		
+	
 		
 
 	
-	else {
-		eingabeZahl[zaehler]=y;
-	}
-		
 	
-	}
-		return eingabeZahl;
 		
 	}
 	
