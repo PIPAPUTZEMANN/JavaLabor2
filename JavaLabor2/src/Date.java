@@ -13,11 +13,11 @@ public class Date {
 		setDate(1,1,1970);
 	}
 	
-	public Date(int myDay, int myMonth, int myYear){
+	public Date(int day, int month, int year){
 		
 		this();
 		
-		setDate(myDay,myMonth,myYear);
+		setDate(day,month,year);
 		
 		
 	}
@@ -28,17 +28,28 @@ public class Date {
 		
 		if(other != null){
 			
-			setDate(other.day, other.month, other.year);
+			setDate(other.day,other.month,other.year);
+			//setYear(other.getYear());
 			
 		}
 	}
-	 public boolean setDate(int newDay, int newMonth, int newYear){
+	
+//	public int getYear(){
+//		
+//		return year;
+//	}
+//		public void setYear(int year){
+//			
+//			this.year=year;
+		
+//	}
+	 public boolean setDate(int day, int month, int year){
 		 if(isValidDate(day, month, year)){
 			 
 		 
-		 this.day=newDay;
-		 this.month=newMonth;
-		 this.year=newYear;
+		 this.day=day;
+		 this.month=month;
+		 this.year=year;
 		 
 		 return true;}
 		 
@@ -49,9 +60,9 @@ public class Date {
 		 
 	 }
 	 
-	 public static boolean isValidDate(int anyDay, int anyMonth, int anyYear){
+	 public static boolean isValidDate(int day, int month, int year){
 		 
-		 if(anyYear%400 == 0 || (anyYear%4 == 0 && anyYear%100 != 0)){
+		 if(year%400 == 0 || (year%4 == 0 && year%100 != 0)){
 			 
 			 lastDayInMonth[1]=29;
 		 }
@@ -63,13 +74,13 @@ public class Date {
 		 }
 		 
 	 
-	return (anyYear >= 1582 && anyMonth >=1 && anyMonth <=12 && anyDay >=1 && anyDay <= lastDayInMonth[anyMonth-1]);
+	return (year >= 1582 && month >=1 && month <=12 && day >=1 && day <= lastDayInMonth[month-1]);
 
 	 }
 	 
 	 public String toString(){
 		 
-		 return String.format("02d.%02d.%04d", day, month, year);
+		 return String.format("%02d.%02d.%04d", day, month, year);
 	 }
 	 
 //	 public boolean equals(Object other){
